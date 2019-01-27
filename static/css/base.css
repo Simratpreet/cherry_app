@@ -1,0 +1,17 @@
+.bg-primary{
+    background: #563d7c !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+    background: none;
+    outline: none;
+    padding: 0px;
+}
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #563d7c;
+    border-color: #563d7c;
+}
+.page-link, a.page-link:hover {
+    color: #563d7c;
+}
