@@ -1,7 +1,7 @@
 from flask import (g, request, render_template, Flask)
 from constants import *
 import pandas as pd
-import redis
+#import redis
 import json
 
 application = Flask(__name__)
@@ -14,9 +14,14 @@ def init_db():
  
 @application.before_request
 def before_request():
-    g.db = init_db()
+    #g.db = init_db()
+    pass
 
 @application.route('/')
+def hello():
+	return 'hello'
+
+@application.route('/index')
 def view_bhav():
 	# these columns are shown on the UI
 	columns = ['SC_CODE', 'SC_NAME', 'OPEN', 'CLOSE', 'PREVCLOSE', 'LAST', 'LOW', 'HIGH', 'NET_TURNOV']
@@ -29,4 +34,4 @@ def view_bhav():
 
 
 if __name__ == "__main__":
-	application.run(debug=True)
+	application.run(host='0.0.0.0', port=5000, debug=True)
