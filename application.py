@@ -4,7 +4,7 @@ import pandas as pd
 import redis
 import json
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 # connection creator with redis
 def init_db():
@@ -12,11 +12,11 @@ def init_db():
     return db
  
  
-@app.before_request
+@application.before_request
 def before_request():
     g.db = init_db()
 
-@app.route('/')
+@application.route('/')
 def view_bhav():
 	# these columns are shown on the UI
 	columns = ['SC_CODE', 'SC_NAME', 'OPEN', 'CLOSE', 'PREVCLOSE', 'LAST', 'LOW', 'HIGH', 'NET_TURNOV']
@@ -29,4 +29,4 @@ def view_bhav():
 
 
 if __name__ == "__main__":
-	app.run(host='0.0.0.0', port=5000, debug=True)
+	application.run(debug=True)
